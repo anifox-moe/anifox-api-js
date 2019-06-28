@@ -8,16 +8,15 @@ const uri = require('../uri.json').uri
  */
 const get = (id, episodeNumber) => {
   return new Promise((resolve, reject) => {
-    
     if (typeof episodeNumber === 'undefined') {
       axios.get(`${uri}/episode/${id}`)
         .then(response => resolve(response.data))
         .catch(e => reject(e))
+    } else {
+      axios.get(`${uri}/episode/${id}/${episodeNumber}`)
+        .then(response => resolve(response.data))
+        .catch(e => reject(e))
     }
-
-    axios.get(`${uri}/episode/${id}/${episodeNumber}`)
-      .then(response => resolve(response.data))
-      .catch(e => reject(e))
   })
 }
 
