@@ -23,11 +23,11 @@ Table of contents:
 - * [episode.get()](https://github.com/nathanial292/FoxifyJS/blob/master/README.md#episodeget)
 
 ## Installation
-```npm install --save foxify```
+```npm install --save foxifyjs```
 
 ## Usage
 ```js
-const foxify = require('foxify')
+const foxify = require('foxifyjs')
 ```
 
 ## Methods
@@ -40,7 +40,7 @@ Get information about a particular anime
 | --- | --- | --- |
 | id | int | id of anime to get |
 ```js
-const foxify = require('foxify')
+const foxify = require('foxifyjs')
 const { anime } = foxify
 
 const id = 20
@@ -57,7 +57,7 @@ Get information about all anime, (optionally filtered by a type)
 | --- | --- |--- | --- |
 | type | Yes | string | The type, must be either `TV`, `ONAs`, `OVAs`, `Specials` or `Movies` |
 ```js
-const foxify = require('foxify')
+const foxify = require('foxifyjs')
 const { anime } = foxify
 
 anime.getAll()
@@ -69,7 +69,7 @@ Returns an object with a data property(array) containing all the [Anime model](h
 ### anime.getAiring()
 Get the current airing anime
 ```js
-const foxify = require('foxify')
+const foxify = require('foxifyjs')
 const { anime } = foxify
 
 anime.getAiring()
@@ -80,7 +80,7 @@ Returns an object with a data property(array) containing all the [Anime model](h
 
 
 ## season
-### season.getSeason()
+### season.get()
 Get a list of anime for a given season, type is optional and can be ommitted but will return every anime for that season (not filtered by Ovas, Movies etc)
 
 | Parameter | Optional | Type | Description |
@@ -89,14 +89,14 @@ Get a list of anime for a given season, type is optional and can be ommitted but
 | season | No | string | The season, must be either `spring`, `summer`, `fall` or `winter` |
 | type | Yes | string | The type, must be either `TV`, `ONAs`, `OVAs`, `Specials` or `Movies` |
 ```js
-const foxify = require('foxify')
+const foxify = require('foxifyjs')
 const { season } = foxify
 
 const season = 'winter'
 const year = '2016'
 const type = 'TV'
 
-season.getSeason(season, year, type)
+season.get(season, year, type)
   .then(data => console.log(data))
   .catch(err => console.log(err))
 ```
@@ -111,7 +111,7 @@ Get a list of episode(s) for a given anime, if no episodeNumber is provided, wil
 | id | No |int | id of anime to get |
 | episodeNumber | Yes | string | episode number to search for 
 ```js
-const foxify = require('foxify')
+const foxify = require('foxifyjs')
 const { episode } = foxify
 
 const id = 20
