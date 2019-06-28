@@ -1,4 +1,5 @@
 const axios = require('axios')
+const uri = require('../uri.json').uri
 
 /**
  * Allows you to get episode information about a show
@@ -7,15 +8,16 @@ const axios = require('axios')
  */
 const get = (id, episodeNumber) => {
   return new Promise((resolve, reject) => {
+    
     if (typeof episodeNumber === 'undefined') {
-      axios.get(`${process.env.URI}/episode/${id}`)
-        .then(response => resolve(response.data))
-        .catch(e => reject(e))
-    } else {
-      axios.get(`${process.env.URI}/episode/${id}/${episodeNumber}`)
+      axios.get(`${uri}/episode/${id}`)
         .then(response => resolve(response.data))
         .catch(e => reject(e))
     }
+
+    axios.get(`${uri}/episode/${id}/${episodeNumber}`)
+      .then(response => resolve(response.data))
+      .catch(e => reject(e))
   })
 }
 

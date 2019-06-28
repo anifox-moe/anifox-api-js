@@ -1,6 +1,6 @@
 {
   "name": "foxifyjs",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Node.JS Wrapper for Anifox.moe REST API",
   "main": "src/index.js",
   "scripts": {
@@ -18,8 +18,7 @@
     "node": ">=8"
   },
   "dependencies": {
-    "axios": "^0.19.0",
-    "dotenv": "^8.0.0"
+    "axios": "^0.19.0"
   },
   "devDependencies": {
     "ava": "^2.1.0",

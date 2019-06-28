@@ -1,4 +1,5 @@
 const axios = require('axios')
+const uri = require('../uri.json').uri
 
 /**
  *
@@ -10,7 +11,7 @@ const get = (id) => {
       reject(new Error('[Foxify]: No ID provided'))
     }
 
-    axios.get(`${process.env.URI}/anime/${id}`)
+    axios.get(`${uri}/anime/${id}`)
       .then(response => resolve(response.data))
       .catch(e => reject(e))
   })
@@ -21,7 +22,7 @@ const get = (id) => {
  */
 const getAll = () => {
   return new Promise((resolve, reject) => {
-    axios.get(`${process.env.URI}/anime`)
+    axios.get(`${uri}/anime`)
       .then(response => resolve(response.data))
       .catch(e => reject(e))
   })
@@ -32,7 +33,7 @@ const getAll = () => {
  */
 const getAiring = () => {
   return new Promise((resolve, reject) => {
-    axios.get(`${process.env.URI}/anime/season/airing`)
+    axios.get(`${uri}/anime/season/airing`)
       .then(response => resolve(response.data))
       .catch(e => reject(e))
   })

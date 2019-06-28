@@ -1,4 +1,5 @@
 const axios = require('axios')
+const uri = require('../uri.json').uri
 
 /**
  * Get data from a season
@@ -9,12 +10,12 @@ const axios = require('axios')
 const get = async (year, season, type) => {
   return new Promise((resolve, reject) => {
     if (typeof type === 'undefined') {
-      axios.get(`${process.env.URI}/season/${year}/${season}`)
+      axios.get(`${uri}/season/${year}/${season}`)
         .then(response => resolve(response.data))
         .catch(e => reject(e))
     }
 
-    axios.get(`${process.env.URI}/season/${year}/${season}/${type}`)
+    axios.get(`${uri}/season/${year}/${season}/${type}`)
       .then(response => resolve(response.data))
       .catch(e => reject(e))
   })
