@@ -1,6 +1,6 @@
 {
   "name": "foxifyjs",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Node.JS Wrapper for Anifox.moe REST API",
   "main": "src/index.js",
   "scripts": {
