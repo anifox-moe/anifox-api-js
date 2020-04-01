@@ -48,7 +48,7 @@ anime.get(id)
   .then(data => console.log(data))
   .catch(err => console.log(err))
 ```
-Returns an object with a data property(array) with a single [Anime model](https://github.com/nathanial292/FoxifyJS/blob/master/README.md#anime-model)
+Returns an object with a data property(object) indexed by malID, with a single [Anime model](https://github.com/nathanial292/FoxifyJS/blob/master/README.md#anime-model)
 
 ### anime.getAll()
 Get information about all anime, (optionally filtered by a type)
@@ -64,7 +64,7 @@ anime.getAll()
   .then(data => console.log(data))
   .catch(err => console.log(err))
 ```
-Returns an object with a data property(array) containing all the [Anime model](https://github.com/nathanial292/FoxifyJS/blob/master/README.md#anime-model) from Anifox
+Returns an object with a data property(object) indexed by malID, containing all the [Anime model](https://github.com/nathanial292/FoxifyJS/blob/master/README.md#anime-model) from Anifox
 
 ### anime.getAiring()
 Get the current airing anime
@@ -76,8 +76,23 @@ anime.getAiring()
   .then(data => console.log(data))
   .catch(err => console.log(err))
 ```
-Returns an object with a data property(array) containing all the [Anime model](https://github.com/nathanial292/FoxifyJS/blob/master/README.md#anime-model) that are currently airing
+Returns an object with a data property(object) indexed by malID, containing all the [Anime model](https://github.com/nathanial292/FoxifyJS/blob/master/README.md#anime-model) that are currently airing
 
+### anime.search()
+Get anime by a search query
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| query | string | string of an anime to search for |
+```js
+const foxify = require('foxifyjs')
+const { anime } = foxify
+
+anime.search('Naruto')
+  .then(data => console.log(data))
+  .catch(err => console.log(err))
+```
+Returns an object with a data property(object) indexed by malID, containing all the [Anime model](https://github.com/nathanial292/FoxifyJS/blob/master/README.md#anime-model) that match the query
 
 ## season
 ### season.get()
@@ -100,7 +115,20 @@ season.get(season, year, type)
   .then(data => console.log(data))
   .catch(err => console.log(err))
 ```
-Returns an object with a data property(array) containing all the [Anime model](https://github.com/nathanial292/FoxifyJS/blob/master/README.md#anime-model) the given season
+Returns an object with a data property(object) indexed by malID, containing all the [Anime model](https://github.com/nathanial292/FoxifyJS/blob/master/README.md#anime-model) the given season
+
+### season.getCurrent()
+Get a list of anime for the current season
+
+```js
+const foxify = require('foxifyjs')
+const { season } = foxify
+
+season.getCurrent()
+  .then(data => console.log(data))
+  .catch(err => console.log(err))
+```
+Returns an object with a data property(object) indexed by malID, containing all the [Anime model](https://github.com/nathanial292/FoxifyJS/blob/master/README.md#anime-model) the current season
 
 ## episode
 ### episode.get()

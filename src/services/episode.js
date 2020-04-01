@@ -8,25 +8,18 @@ const uri = require('../uri.json').uri
  */
 const get = (id, episodeNumber) => {
   return new Promise((resolve, reject) => {
-    axios.get(`${uri}/episode/${id}/${episodeNumber}`)
-      .then(response => resolve(response.data))
-      .catch(e => reject(e))
-  })
-}
-
-/**
- * Return all episodes for a relevant anime
- * @param {number} id - ID of the show you are searching for
- */
-const getAll = (id) => {
-  return new Promise((resolve, reject) => {
-    axios.get(`${uri}/episode/${id}`)
-      .then(response => resolve(response.data))
-      .catch(e => reject(e))
+    if (typeof episodeNumber === 'undefined') {
+      axios.get(`${uri}/episode/${id}`)
+        .then(response => resolve(response.data))
+        .catch(e => reject(e))
+    } else {
+      axios.get(`${uri}/episode/${id}/${episodeNumber}`)
+        .then(response => resolve(response.data))
+        .catch(e => reject(e))
+    }
   })
 }
 
 module.exports = {
-  get,
-  getAll
+  get
 }
