@@ -39,8 +39,21 @@ const getAiring = () => {
   })
 }
 
+/**
+ * Return search query
+ * @param {string} term - Search term you want to query
+ */
+const search = (term) => {
+  return new Promise((resolve, reject) => {
+    axios.get(`${uri}/anime/search/${term}`)
+      .then(response => resolve(response.data))
+      .catch(e => reject(e))
+  })
+}
+
 module.exports = {
   get,
   getAiring,
-  getAll
+  getAll,
+  search
 }
