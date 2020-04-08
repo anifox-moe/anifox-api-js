@@ -3,7 +3,7 @@ const uri = require('../uri.json').uri
 
 /**
  * Allows you to get episode information about a show
- * @param {number} id - ID of the show you are searching for
+ * @param {integer} id - ID of the show you are searching for
  * @param {string|number} episodeNumber - Episode number that you want to get
  */
 const get = (id, episodeNumber) => {
