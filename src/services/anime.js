@@ -20,9 +20,15 @@ const get = (id) => {
 /**
  * Return all anime from Anifox
  */
-const getAll = () => {
+const getAll = (limit) => {
   return new Promise((resolve, reject) => {
-    axios.get(`${uri}/anime`)
+    let request
+    if (typeof limit !== 'undefined') {
+      request = axios.get(`${uri}/anime?limit=${limit}`)
+    } else {
+      request = axios.get(`${uri}/anime`)
+    }
+    request
       .then(response => resolve(response.data))
       .catch(e => reject(e))
   })
