@@ -56,6 +56,7 @@ Get information about all anime, (optionally filtered by a type)
 | Parameter | Optional | Type | Description |
 | --- | --- |--- | --- |
 | type | Yes | string | The type, must be either `TV`, `ONAs`, `OVAs`, `Specials` or `Movies` |
+| limit | Yes | integer | Limits the amount of search results returned |
 ```js
 const foxify = require('foxifyjs')
 const { anime } = foxify
