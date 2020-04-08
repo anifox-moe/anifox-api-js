@@ -39,7 +39,7 @@ const getAll = (limit) => {
  * Return all anime filtered by genre
  *  * @param {string} type - The type of show you want to filter by "TV", "TVNew", "TVCon", "ONAs", "OVAs", "Specials" or "Movies".
  */
-const getAllType = (limit, type) => {
+const getAllType = (type, limit) => {
   return new Promise((resolve, reject) => {
     let request
     if (typeof limit !== 'undefined') {
